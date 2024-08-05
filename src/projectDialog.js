@@ -1,4 +1,3 @@
-// import { toDoDialog, getValues } from './toDoDialog';
 
 const projectDialog = () => {
     const dialog = document.createElement('dialog');
@@ -43,10 +42,11 @@ const projectDialog = () => {
         };
         console.log(values);
         dialog.close();
+        return values;
     });
     // });
 
 
 }
 
-export { projectDialog };
+export { projectDialog, values };

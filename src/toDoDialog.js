@@ -29,6 +29,9 @@ const toDoDialog = () => {
     dialog.showModal(); // Show the dialog
 
 
+    
+
+
     // Handle the form submission
     submitButton.addEventListener('click', (e) => {
         e.preventDefault();
@@ -40,10 +43,11 @@ const toDoDialog = () => {
         };
         console.log(values);
         dialog.close();
+        return values;
     });
 
 
 
 }
 
-export { toDoDialog };
+export { toDoDialog, values };
