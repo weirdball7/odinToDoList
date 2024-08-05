@@ -1,7 +1,9 @@
 import './styles.css';
-import { createComtainers } from './update';
+import { createContainers, toDoDialog } from './createDom';
 
-createComtainers();
+
+createContainers();
+
 
 
 // facroty for to do item
@@ -13,10 +15,3 @@ function todoItem(title, description, dueDate, priority)  {
 
     return { title, description, dueDate, priority };
 }
-
-
-
-
-
-
-
