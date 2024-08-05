@@ -1,4 +1,4 @@
-import { toDoDialog, getValues } from './toDoDialog';
+// import { toDoDialog, getValues } from './toDoDialog';
 
 const projectDialog = () => {
     const dialog = document.createElement('dialog');
@@ -29,11 +29,11 @@ const projectDialog = () => {
     dialog.appendChild(form);
     document.body.appendChild(dialog); // Append dialog to the document body
     dialog.showModal(); // Show the dialog
-    submitButton.addEventListener('click', () => {
-        dialog.close();
-    });
+
     // Get the values of the input fields
-    form.addEventListener('submit', (e) => {
+    // form.addEventListener('submit', (e) => {
+
+    submitButton.addEventListener('click', (e) => {
         e.preventDefault();
         const values = {
             title: titleInput.value,
@@ -42,8 +42,11 @@ const projectDialog = () => {
             priority: priorityInput.value
         };
         console.log(values);
-
+        dialog.close();
     });
+    // });
+
+
 }
 
 export { projectDialog };

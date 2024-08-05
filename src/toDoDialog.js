@@ -27,12 +27,10 @@ const toDoDialog = () => {
     dialog.appendChild(form);
     document.body.appendChild(dialog); // Append dialog to the document body
     dialog.showModal(); // Show the dialog
-    submitButton.addEventListener('click', () => {
-        dialog.close();
-    });
+
 
     // Handle the form submission
-    form.addEventListener('submit', (e) => {
+    submitButton.addEventListener('click', (e) => {
         e.preventDefault();
         const values = {
             title: titleInput.value,
@@ -41,7 +39,11 @@ const toDoDialog = () => {
             priority: priorityInput.value
         };
         console.log(values);
+        dialog.close();
     });
+
+
+
 }
 
 export { toDoDialog };
