@@ -1,5 +1,4 @@
-
-const projectDialog = () => {
+const projectDialog = (onSubmit) => {
     const dialog = document.createElement('dialog');
     const form = document.createElement('form');
     const titleInput = document.createElement('input');
@@ -29,24 +28,18 @@ const projectDialog = () => {
     document.body.appendChild(dialog); // Append dialog to the document body
     dialog.showModal(); // Show the dialog
 
-    // Get the values of the input fields
-    // form.addEventListener('submit', (e) => {
-
-    submitButton.addEventListener('click', (e) => {
+    // Handle form submission
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const values = {
+        const project = {
             title: titleInput.value,
             description: descriptionInput.value,
             dueDate: dueDateInput.value,
             priority: priorityInput.value
         };
-        console.log(values);
         dialog.close();
-        return values;
+        if (onSubmit) onSubmit(project);
     });
-    // });
-
-
 }
 
-export { projectDialog, values };
+export { projectDialog };
