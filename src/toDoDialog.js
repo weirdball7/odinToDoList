@@ -20,11 +20,19 @@ const toDoDialog = (onSubmit) => {
     submitButton.innerText = 'Add';
     closeButton.setAttribute('type', 'button'); // Close button type
     closeButton.innerText = 'Close';
+
+    // Ensure the close button click event is working
     closeButton.addEventListener('click', () => {
         console.log('Close button clicked');
         dialog.close(); // Explicitly close the dialog
     });
 
+    // Prevent clicks inside the form from propagating to the window
+    form.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+
+    // Append inputs and buttons to the form
     form.appendChild(titleInput);
     form.appendChild(descriptionInput);
     form.appendChild(dueDateInput);
@@ -32,9 +40,12 @@ const toDoDialog = (onSubmit) => {
     form.appendChild(submitButton);
     form.appendChild(closeButton); // Append close button
 
+    // Append form to dialog
     dialog.appendChild(form);
-    document.body.appendChild(dialog); // Append dialog to the document body
-    dialog.showModal(); // Show the dialog
+
+    // Append dialog to the document body and show it
+    document.body.appendChild(dialog);
+    dialog.showModal();
 
     // Handle form submission
     form.addEventListener('submit', (e) => {
@@ -56,6 +67,14 @@ const toDoDialog = (onSubmit) => {
             console.log('Clicked outside the dialog');
             dialog.close();
         }
+    });
+
+    // Debugging: Log the dialog state
+    dialog.addEventListener('close', () => {
+        console.log('Dialog closed');
+    });
+    dialog.addEventListener('cancel', () => {
+        console.log('Dialog canceled');
     });
 }
 
